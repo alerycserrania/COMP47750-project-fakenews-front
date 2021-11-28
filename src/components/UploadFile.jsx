@@ -3,7 +3,7 @@ import { DropzoneArea } from 'material-ui-dropzone';
 import { Button, CircularProgress, TextField } from '@mui/material';
 import { useState } from 'react';
 
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = process.env.REACT_APP_API_BASE_URL
 
 const UploadFile = ({ setData }) => {
   const [trainingProp, setTrainingProp] = useState(0.67)
