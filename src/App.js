@@ -13,7 +13,7 @@ import { useState } from 'react'
 const App = () => {
 
   const [data, setData] = useState(null)
-  console.log(data)
+
   return (
     <div className="App">
       <Grid container spacing={2}>
@@ -25,7 +25,7 @@ const App = () => {
             <>
               <Grid item md={3} xs={0} />
               <Grid item md={6} xs={12}>
-                <UploadFile setData={setData}  />
+                <UploadFile setData={setData} />
               </Grid>
               <Grid item md={3} xs={0} />
             </>)
