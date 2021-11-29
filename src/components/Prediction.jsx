@@ -12,6 +12,7 @@ const Prediction = ({ idx }) => {
   const handlePredict = () => {
     setLoading(true)
     setPrediction('')
+    setScore(null)
     fetch(BASE_URL + '/predict', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
