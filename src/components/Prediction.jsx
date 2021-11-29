@@ -7,6 +7,7 @@ const Prediction = ({ idx }) => {
   const [text, setText] = useState('')
   const [prediction, setPrediction] = useState('')
   const [isLoading, setLoading] = useState(false)
+  const [score, setScore] = useState(null)
   
   const handlePredict = () => {
     setLoading(true)
@@ -20,7 +21,10 @@ const Prediction = ({ idx }) => {
         if (result.ok) { return result.json() }
         else { throw Error() }
       })
-      .then(data => { setPrediction(data[0].result) })
+      .then(data => { 
+        setPrediction(data[0].result)
+        setScore(data[0].proba.toFixed(3))
+      })
       .catch(_ => { /*setOpenError(true)*/ })
       .finally(() => { setLoading(false) })
   }
@@ -55,6 +59,8 @@ const Prediction = ({ idx }) => {
 
         {prediction === 'f' ? <Chip label="FAKE" color="danger" variant="contained"  /> : 
           (prediction === 'r' ? <Chip label="REAL" color="success"  /> : null)}
+
+        {score ? <Chip label={'SCORE: ' + score} color="primary" variant="outline" style={{marginLeft: '1em'}}  /> : null}
         
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { Divider } from "@material-ui/core";
 import { Grid, Typography, Box, TextField, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import { PieChart, Pie, Tooltip, Cell, Legend, ResponsiveContainer, Label, BarChart, XAxis, YAxis, CartesianGrid, Bar, Brush, RadialBarChart, RadialBar } from 'recharts';
 import Prediction from "./Prediction";
@@ -42,10 +41,6 @@ const Analysis = ({ data }) => {
     return entry.toFixed(2) + '%'
   }
 
-  const getMaxAngle = (data) => {
-    return 270 * Math.min(data || 0, 1000) / 1000;
-  }
-
   return (
     <Grid container spacing={2} >
       <Grid item xs={0} md={2} />
@@ -62,7 +57,7 @@ const Analysis = ({ data }) => {
               shrink: true,
             }}
             value={data['idx']}
-            style={{ width: '100%', marginTop: '1em', marginBottom: '1em' }}
+            sx={{ width: '100%', marginBottom: '1em' }}
           />
         </Grid>
         <Grid item xs={12}>
