@@ -1,8 +1,8 @@
 
-import { DropzoneArea } from 'material-ui-dropzone';
 import { Button, CircularProgress, TextField, Divider, Snackbar, Alert } from '@mui/material';
 import { useState } from 'react';
 import { Typography } from '@material-ui/core';
+import Dropzone from './Dropzone';
 
 const BASE_URL = process.env.REACT_APP_API_BASE_URL
 
@@ -56,17 +56,7 @@ const UploadFile = ({ setData }) => {
       <Typography variant="h6" component="div" gutterBottom>
         Train model from data
       </Typography>
-      <DropzoneArea
-        dropzoneText="Drop your data or click here"
-        onChange={handleChangeFiles}
-        maxFileSize={100 * 1024 * 1024}
-        filesLimit={1}
-        acceptedFiles={['text/csv']}
-        showPreviews={true}
-        showPreviewsInDropzone={false}
-        useChipsForPreview
-        previewText="Selected files"
-      />
+      <Dropzone files={files} setFiles={setFiles} />
       <TextField
         label="Training Data Proportion"
         InputLabelProps={{

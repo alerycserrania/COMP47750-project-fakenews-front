@@ -8,18 +8,24 @@ import { Grid } from '@mui/material';
 import UploadFile from './components/UploadFile';
 import Analysis from './components/Analysis';
 import { useState } from 'react'
+import { CssBaseline } from '@material-ui/core';
 
 
 const App = () => {
 
   const [data, setData] = useState(null)
 
+  const resetData = () => {
+    setData(null)
+  }
+
   return (
     <div className="App">
+      <CssBaseline>
       <Grid container spacing={2}>
         {data !== null ?
           (<Grid item xs={12}>
-            <Analysis data={data} />
+            <Analysis data={data} resetData={resetData} />
           </Grid>)
           : (
             <>
@@ -31,6 +37,7 @@ const App = () => {
             </>)
         }
       </Grid>
+      </CssBaseline>
     </div>
   );
 }

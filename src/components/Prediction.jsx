@@ -45,7 +45,7 @@ const Prediction = ({ idx }) => {
           shrink: true,
         }}
         rows={10}
-        rowsMax={10}
+        maxRows={10}
         value={text}
         onChange={(ev) => {
           setText(ev.target.value)
